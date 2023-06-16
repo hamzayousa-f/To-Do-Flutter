@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do/constraints/color.dart';
 
 import '../widgets/searchbox.dart';
+import '../widgets/todo_item.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -24,6 +25,24 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             SearchBox(),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: 50,
+                      bottom: 20,
+                    ),
+                    child: Text(
+                      'All To Do\'s',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  ToDo(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
