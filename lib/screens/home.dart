@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:to_do/constraints/color.dart';
 
+import '../model/models.dart';
 import '../widgets/searchbox.dart';
+import '../widgets/todo_item.dart';
 import '../widgets/todo_item.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
+
+  final todoList = ToDo.toDoList();
 }
 
 class _HomeState extends State<Home> {
@@ -39,7 +43,10 @@ class _HomeState extends State<Home> {
                           TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  ToDo(),
+                  for (ToDo todo in todoList)
+                    ToDoItem(
+                      todo: todo,
+                    ),
                 ],
               ),
             ),
